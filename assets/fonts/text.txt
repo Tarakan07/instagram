@@ -1,0 +1,19 @@
+<Text style={{ fontFamily: "InstagramSans-Bold" }}>ProfileScreen</Text>
+			<Text style={{ fontFamily: "InstagramSans-Light" }}>ProfileScreen</Text>
+			<Text style={{ fontFamily: "InstagramSans-Medium" }}>ProfileScreen</Text>
+			<Text style={{ fontFamily: "InstagramSans-Regular" }}>ProfileScreen</Text>
+			<Text style={{ fontFamily: "InstagramSansCondensed-Bold" }}>
+				ProfileScreen
+			</Text>
+			<Text style={{ fontFamily: "InstagramSansCondensed-Regular" }}>
+				ProfileScreen
+			</Text>
+			<Text style={{ fontFamily: "InstagramSansHeadline-Regular" }}>
+				ProfileScreen
+			</Text>
+			<Text style={{ fontFamily: "InstagramSansScript-Bold" }}>
+				ProfileScreen
+			</Text>
+			<Text style={{ fontFamily: "InstagramSansScript-Regular" }}>
+				ProfileScreen
+			</Text>
