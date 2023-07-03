@@ -21,6 +21,9 @@ const ProfileScreen = ({
 
 	useEffect(() => {
 		scroll = !scroll;
+		navigation
+			.getParent("BottomTabNavigator")
+			.setOptions({ tabBarStyle: { display: scroll ? "none" : "flex" } });
 	}, [visibleModal]);
 	if (visibleModal === "changeAccount") {
 		visibleComponent = createModal(ChangeAccount, unmountModalComponent);

@@ -30,6 +30,7 @@ const Navigation = () => {
 	return (
 		<NavigationContainer>
 			<BottomTab.Navigator
+				id="BottomTabNavigator"
 				screenOptions={({ route }) => BottomNavigatorConfig(route)}
 			>
 				<BottomTab.Screen name="Home" component={HomeScreen} />
@@ -106,6 +107,7 @@ const NavigatorProfile = () => {
 	const [visibleModal, setVisibleModal] = useState("");
 	const modalComponent = (compModal) => setVisibleModal(compModal);
 	const unmountModalComponent = () => setVisibleModal("");
+
 	return (
 		<NativeNavigator.Navigator
 			screenOptions={{

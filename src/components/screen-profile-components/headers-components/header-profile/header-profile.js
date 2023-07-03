@@ -7,11 +7,14 @@ import {
 	SimpleLineIcons,
 } from "@expo/vector-icons";
 
+import CreatePost from "../../screen-home-profile-component/create-post";
+
 import THEME from "../../../../THEME";
 const HeaderProfile = ({ navigation, modalComponent, visibleModal }) => {
 	const toAboutProfile = () => {
 		navigation.navigate("AboutProfile");
 	};
+
 	const modalTitle = {
 		changeAccount: "changeAccount",
 		createPost: "createPost",
