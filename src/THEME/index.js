@@ -11,4 +11,7 @@ export default THEME = {
 		InstagramSansScriptRegular: "InstagramSansScript-Regular",
 	},
 	paddingHorisontal: 8,
+	colors: {
+		gray: "#808080",
+	},
 };

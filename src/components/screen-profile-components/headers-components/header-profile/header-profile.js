@@ -18,15 +18,7 @@ const HeaderProfile = ({ navigation, modalComponent, visibleModal }) => {
 		settingsAccount: "settingsAccount",
 	};
 	return (
-		<View
-			style={[
-				styles.container,
-				{
-					// backgroundColor:
-					// 	visibleModal != "" ? "rgba(169, 169, 169,.2)" : "#fff",
-				},
-			]}
-		>
+		<View style={styles.container}>
 			<View style={styles.leftBlock}>
 				<View style={styles.aboutAccount}>
 					<Pressable style={styles.aboutAccountButton} onPress={toAboutProfile}>
@@ -52,7 +44,7 @@ const HeaderProfile = ({ navigation, modalComponent, visibleModal }) => {
 			</View>
 			<View style={styles.rightBlock}>
 				<View style={styles.createAction}>
-					<Pressable>
+					<Pressable onPress={() => modalComponent(modalTitle.createPost)}>
 						<Octicons name="diff-added" size={24} color="black" />
 					</Pressable>
 				</View>

@@ -23,48 +23,50 @@ const ChangeAccount = () => {
 		addNewAccount,
 	];
 
-	if (true)
-		return (
-			<View style={styles.changeAccount}>
-				{changeAccountBlock.map((el) => {
-					return (
-						<View key={el.id} style={styles.rowAccount}>
-							<View style={styles.infoAccount}>
-								<View style={styles.infoAccountWrapImg}>
-									{el.img.length > 1 ? (
-										<Image
-											source={require("../../../../../assets/images/4ca4126s-960.jpg")}
-											style={styles.infoAccountImage}
-										/>
-									) : (
-										<AntDesign name="pluscircleo" size={45} color="black" />
-									)}
-								</View>
-								<Text style={styles.infoAccountText}>{el.title}</Text>
-							</View>
-							<View style={styles.chooseAccount}>
-								{el.choose ? (
-									<MaterialCommunityIcons
-										name="record-circle"
-										size={24}
-										color="#0000FF"
+	return (
+		<View style={[styles.changeAccount, styles.wrapModal]}>
+			{changeAccountBlock.map((el) => {
+				return (
+					<View key={el.id} style={styles.row}>
+						<View style={styles.infoAccount}>
+							<View style={styles.infoAccountWrapImg}>
+								{el.img.length > 1 ? (
+									<Image
+										source={require("../../../../../assets/images/4ca4126s-960.jpg")}
+										style={styles.infoAccountImage}
 									/>
-								) : null}
+								) : (
+									<AntDesign name="pluscircleo" size={45} color="black" />
+								)}
 							</View>
+							<Text style={styles.infoAccountText}>{el.title}</Text>
 						</View>
-					);
-				})}
-			</View>
-		);
+						<View style={styles.chooseAccount}>
+							{el.choose ? (
+								<MaterialCommunityIcons
+									name="record-circle"
+									size={24}
+									color="#0000FF"
+								/>
+							) : null}
+						</View>
+					</View>
+				);
+			})}
+		</View>
+	);
 };
 
 const styles = StyleSheet.create({
+	wrapModal: {
+		paddingTop: 10,
+		paddingBottom: 13,
+	},
 	changeAccount: {
-		padding: 13,
-		paddingTop: 18,
 		height: 170,
 	},
-	rowAccount: {
+	row: {
+		paddingHorizontal: THEME.paddingHorisontal,
 		paddingTop: 10,
 		flexDirection: "row",
 		alignItems: "center",

@@ -15,17 +15,10 @@ import Animated, {
 const bottomModalHOC = (Modal) => {
 	return (props) => {
 		const bottomSheetModalRef = useRef();
-		const heit = 170;
 		const windowHeight = Dimensions.get("window").height;
 		const screenHeight = Dimensions.get("screen").height;
-		const point = 1.1;
-		console.log(screenHeight);
 		const snapPoints = useMemo(() => ["60%", "65%"], []);
 
-		// callbacks
-		const handlePresentModalPress = useCallback(() => {
-			bottomSheetModalRef.current?.present();
-		}, []);
 		useEffect(() => {
 			bottomSheetModalRef.current?.present();
 		}, []);
@@ -43,9 +36,19 @@ const bottomModalHOC = (Modal) => {
 						onDismiss={() => {
 							props.unmountModalComponent();
 						}}
-						style={{ backgroundColor: "#fff" }}
+						style={{ backgroundColor: "transparent" }}
 						backgroundStyle={styles.container}
-						handleComponent={() => <View style={styles.headerStrip} />}
+						handleComponent={() => (
+							<View
+								style={{
+									height: 30,
+									justifyContent: "center",
+									alignItems: "center",
+								}}
+							>
+								<View style={styles.headerStrip} />
+							</View>
+						)}
 						backdropComponent={() => (
 							<Pressable
 								onPress={() => props.unmountModalComponent()}
@@ -81,13 +84,10 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 	},
 	headerStrip: {
-		marginTop: 13,
 		width: 30,
 		height: 4,
 		borderRadius: 15,
 		backgroundColor: "#000",
-
-		alignSelf: "center",
 	},
 });
 export default bottomModalHOC;

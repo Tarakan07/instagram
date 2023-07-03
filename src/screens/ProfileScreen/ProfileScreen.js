@@ -1,12 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import {
-	View,
-	Text,
-	StyleSheet,
-	ScrollView,
-	FlatList,
-	Dimensions,
-} from "react-native";
+import { View, StyleSheet, ScrollView, Text } from "react-native";
 
 import AboutAccount from "../../components/screen-profile-components/screen-home-profile-component/about-account";
 import SettingsProfile from "../../components/screen-profile-components/screen-home-profile-component/settings-profile";
@@ -14,30 +7,32 @@ import HistoryPosts from "../../components/screen-profile-components/screen-home
 import ProfilePosts from "../../components/screen-profile-components/screen-home-profile-component/profile-posts";
 import ChangeAccount from "../../components/screen-profile-components/screen-home-profile-component/change-account";
 
-import HeaderProfile from "../../components/screen-profile-components/headers-components/header-profile";
-
+import HeaderProfile from "./../../components/screen-profile-components/headers-components/header-profile/header-profile";
+import CreatePost from "../../components/screen-profile-components/screen-home-profile-component/create-post";
 const ProfileScreen = ({
 	visibleModal,
 	modalComponent,
 	unmountModalComponent,
 	navigation,
 }) => {
-	const [scroll, setScroll] = useState(true);
+	// const [scroll, setScroll] = useState(true);
 	let visibleComponent = null;
+	let scroll = true;
 
-	if (visibleModal == "changeAccount") {
-		visibleComponent = (
-			<ChangeAccount unmountModalComponent={unmountModalComponent} />
-		);
-		useEffect(() => {
-			setScroll(false);
-		}, [visibleModal]);
+	useEffect(() => {
+		scroll = !scroll;
+	}, [visibleModal]);
+	if (visibleModal === "changeAccount") {
+		visibleComponent = createModal(ChangeAccount, unmountModalComponent);
+		scroll = false;
+	} else if (visibleModal === "createPost") {
+		visibleComponent = createModal(CreatePost, unmountModalComponent);
+		scroll = false;
 	} else {
 		visibleComponent = null;
-		useEffect(() => {
-			setScroll(true);
-		}, [visibleModal]);
 	}
+
+	// console.log(visibleComponent, visibleModal);
 	return (
 		<ScrollView style={styles.container} scrollEnabled={scroll}>
 			<View>
@@ -146,6 +141,10 @@ const ProfileScreen = ({
 			</Text> */}
 		</ScrollView>
 	);
+};
+
+const createModal = (Modal, unmountModalComponent) => {
+	return <Modal unmountModalComponent={unmountModalComponent} />;
 };
 const styles = StyleSheet.create({
 	container: { height: "100%", backgroundColor: "#fff" },

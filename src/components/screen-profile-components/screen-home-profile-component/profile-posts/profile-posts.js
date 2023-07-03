@@ -45,13 +45,31 @@ const ProfilePosts = () => {
 				getLabelText={() => null}
 				renderIcon={({ route, focused, color }) => {
 					if (route.key === "allPosts")
-						return <MaterialIcons name="grid-on" size={24} color="black" />;
+						return (
+							<MaterialIcons
+								name="grid-on"
+								size={24}
+								color={focused ? "black" : THEME.colors.gray}
+							/>
+						);
 					if (route.key === "video")
-						return <Octicons name="video" size={24} color="black" />;
+						return (
+							<Octicons
+								name="video"
+								size={24}
+								color={focused ? "black" : THEME.colors.gray}
+							/>
+						);
 					if (route.key === "mark")
-						return <Ionicons name="person-outline" size={24} color="black" />;
+						return (
+							<Ionicons
+								name="person-outline"
+								size={24}
+								color={focused ? "black" : THEME.colors.gray}
+							/>
+						);
 				}}
-				indicatorStyle={{ backgroundColor: "#000" }}
+				indicatorStyle={{ backgroundColor: THEME.colors.gray, width: 2 }}
 				style={{ backgroundColor: "#fff" }}
 			/>
 		);
