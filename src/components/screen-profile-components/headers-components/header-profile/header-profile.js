@@ -7,18 +7,17 @@ import {
 	SimpleLineIcons,
 } from "@expo/vector-icons";
 
+import ChangeAccount from "../../screen-home-profile-component/change-account";
 import CreatePost from "../../screen-home-profile-component/create-post";
 
 import THEME from "../../../../THEME";
-const HeaderProfile = ({ navigation, modalComponent, visibleModal }) => {
+const HeaderProfile = ({
+	navigation,
+	modalComponent,
+	unmountModalComponent,
+}) => {
 	const toAboutProfile = () => {
 		navigation.navigate("AboutProfile");
-	};
-
-	const modalTitle = {
-		changeAccount: "changeAccount",
-		createPost: "createPost",
-		settingsAccount: "settingsAccount",
 	};
 	return (
 		<View style={styles.container}>
@@ -39,7 +38,9 @@ const HeaderProfile = ({ navigation, modalComponent, visibleModal }) => {
 				<View style={styles.changeAccount}>
 					<Pressable
 						style={styles.changeAccountButton}
-						onPress={() => modalComponent(modalTitle.changeAccount)}
+						onPress={() =>
+							modalComponent(createModal(ChangeAccount, unmountModalComponent))
+						}
 					>
 						<MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
 					</Pressable>
@@ -47,7 +48,11 @@ const HeaderProfile = ({ navigation, modalComponent, visibleModal }) => {
 			</View>
 			<View style={styles.rightBlock}>
 				<View style={styles.createAction}>
-					<Pressable onPress={() => modalComponent(modalTitle.createPost)}>
+					<Pressable
+						onPress={() =>
+							modalComponent(createModal(CreatePost, unmountModalComponent))
+						}
+					>
 						<Octicons name="diff-added" size={24} color="black" />
 					</Pressable>
 				</View>
@@ -60,6 +65,11 @@ const HeaderProfile = ({ navigation, modalComponent, visibleModal }) => {
 		</View>
 	);
 };
+
+const createModal = (Modal, unmountModalComponent) => {
+	return <Modal unmountModalComponent={unmountModalComponent} />;
+};
+
 const styles = StyleSheet.create({
 	container: {
 		height: 35,

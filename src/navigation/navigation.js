@@ -104,10 +104,6 @@ const BottomNavigatorConfig = (route) => {
 
 //Profile navigator
 const NavigatorProfile = () => {
-	const [visibleModal, setVisibleModal] = useState("");
-	const modalComponent = (compModal) => setVisibleModal(compModal);
-	const unmountModalComponent = () => setVisibleModal("");
-
 	return (
 		<NativeNavigator.Navigator
 			screenOptions={{
@@ -115,14 +111,7 @@ const NavigatorProfile = () => {
 			}}
 		>
 			<NativeNavigator.Screen name="Profile">
-				{(props) => (
-					<ProfileScreen
-						{...props}
-						visibleModal={visibleModal}
-						modalComponent={modalComponent}
-						unmountModalComponent={unmountModalComponent}
-					/>
-				)}
+				{(props) => <ProfileScreen {...props} />}
 			</NativeNavigator.Screen>
 			<NativeNavigator.Screen
 				name="AboutProfile"
