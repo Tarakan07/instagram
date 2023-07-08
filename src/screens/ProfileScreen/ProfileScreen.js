@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, VirtualizedList } from "react-native";
 
 import AboutAccount from "../../components/screen-profile-components/screen-home-profile-component/about-account";
 import SettingsProfile from "../../components/screen-profile-components/screen-home-profile-component/settings-profile";
 import HistoryPosts from "../../components/screen-profile-components/screen-home-profile-component/history-posts";
-import ProfilePosts from "../../components/screen-profile-components/screen-home-profile-component/profile-posts";
+import TabsProfilePosts from "../../components/screen-profile-components/screen-home-profile-component/tabs-profile-posts";
 import HeaderProfile from "./../../components/screen-profile-components/headers-components/header-profile/header-profile";
 
 let scrollPage = true;
@@ -32,7 +32,7 @@ const ProfileScreen = ({ navigation }) => {
 				<AboutAccount />
 				<SettingsProfile />
 				<HistoryPosts />
-				<ProfilePosts />
+				<TabsProfilePosts />
 				{visibleModal}
 			</View>
 			{/* <Text style={{ fontSize: 30, fontFamily: "InstagramSans-Bold" }}>

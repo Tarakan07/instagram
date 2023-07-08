@@ -1,16 +1,32 @@
 import React, { useState } from "react";
-import {
-	View,
-	Text,
-	StyleSheet,
-	useWindowDimensions,
-	Dimensions,
-} from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MaterialIcons, Octicons, Ionicons } from "@expo/vector-icons";
-const FirstRoute = () => (
-	<View style={{ flex: 1, backgroundColor: "#ff4081" }}></View>
-);
+import THEME from "../../../../THEME";
+import ProfilePostsItems from "../profile-posts-items";
+const data = [
+	{
+		id: 1,
+		image: require("../../../../../assets/images/posts/1.jpg"),
+	},
+	{
+		id: 2,
+		image: require("../../../../../assets/images/posts/2.jpg"),
+	},
+	{
+		id: 3,
+		image: require("../../../../../assets/images/posts/3.jpg"),
+	},
+	{
+		id: 4,
+		image: require("../../../../../assets/images/posts/4.jpg"),
+	},
+	{
+		id: 5,
+		image: require("../../../../../assets/images/posts/5.jpg"),
+	},
+];
+const FirstRoute = () => <ProfilePostsItems data={data} />;
 const SecondRoute = () => (
 	<View style={{ flex: 1, backgroundColor: "#673ab7" }} />
 );
@@ -21,7 +37,7 @@ const renderScene = SceneMap({
 	video: SecondRoute,
 	mark: ThreeRoute,
 });
-const ProfilePosts = () => {
+const TabsProfilePosts = () => {
 	const [index, setIndex] = useState(0);
 	const [routes] = useState([
 		{
@@ -92,4 +108,4 @@ const styles = StyleSheet.create({
 		height: 500,
 	},
 });
-export default ProfilePosts;
+export default TabsProfilePosts;
