@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import bottomModalHOC from "../../../../hoc/bottom-modal-hoc";
+
 import THEME from "../../../../THEME";
 
 const ChangeAccount = () => {

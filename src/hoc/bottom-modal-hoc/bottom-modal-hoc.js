@@ -17,7 +17,7 @@ const bottomModalHOC = (Modal) => {
 		const bottomSheetModalRef = useRef();
 		const windowHeight = Dimensions.get("window").height;
 		const screenHeight = Dimensions.get("screen").height;
-		const snapPoints = useMemo(() => ["60%", "65%"], []);
+		const snapPoints = useMemo(() => ["50%", "80%"], []);
 
 		useEffect(() => {
 			bottomSheetModalRef.current?.present();
@@ -30,8 +30,6 @@ const bottomModalHOC = (Modal) => {
 						ref={bottomSheetModalRef}
 						snapPoints={snapPoints}
 						detached={false}
-						containerHeight={500}
-						contentHeight={500}
 						// animateOnMount={false}
 						onDismiss={() => {
 							props.unmountModalComponent();
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
 		width: 30,
 		height: 4,
 		borderRadius: 15,
-		backgroundColor: "#000",
+		backgroundColor: "#696969",
 	},
 });
 export default bottomModalHOC;

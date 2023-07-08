@@ -9,6 +9,7 @@ import {
 
 import ChangeAccount from "../../screen-home-profile-component/change-account";
 import CreatePost from "../../screen-home-profile-component/create-post";
+import ActionsProfile from "../../screen-home-profile-component/actions-profile";
 
 import THEME from "../../../../THEME";
 const HeaderProfile = ({
@@ -57,7 +58,11 @@ const HeaderProfile = ({
 					</Pressable>
 				</View>
 				<View style={styles.settingsAccount}>
-					<Pressable>
+					<Pressable
+						onPress={() =>
+							modalComponent(createModal(ActionsProfile, unmountModalComponent))
+						}
+					>
 						<SimpleLineIcons name="menu" size={24} color="black" />
 					</Pressable>
 				</View>

@@ -10,7 +10,6 @@ import HeaderProfile from "./../../components/screen-profile-components/headers-
 let scrollPage = true;
 const ProfileScreen = ({ navigation }) => {
 	const [visibleModal, setVisibleModal] = useState(null);
-
 	const modalComponent = (compModal) => {
 		setVisibleModal(compModal);
 	};

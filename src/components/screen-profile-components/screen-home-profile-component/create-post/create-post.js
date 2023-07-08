@@ -1,10 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import bottomModalHOC from "../../../../hoc/bottom-modal-hoc";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { SimpleLineIcons } from "@expo/vector-icons";
+import ModalItem from "../modal-items";
+import {
+	Ionicons,
+	Feather,
+	SimpleLineIcons,
+	MaterialIcons,
+} from "@expo/vector-icons";
 
 import THEME from "../../../../THEME";
 const CreatePost = () => {
@@ -48,18 +51,7 @@ const CreatePost = () => {
 			<View style={styles.wrapTitleModal}>
 				<Text style={styles.titleModal}>Создать</Text>
 			</View>
-			<View style={styles.wrapRows}>
-				{data.map((row) => {
-					return (
-						<View key={row.id} style={styles.row}>
-							<View style={styles.rowIcon}>{row.icon}</View>
-							<View style={styles.wrapRowTitle}>
-								<Text style={styles.rowTitle}>{row.title}</Text>
-							</View>
-						</View>
-					);
-				})}
-			</View>
+			<ModalItem data={data} />
 		</View>
 	);
 };
@@ -75,33 +67,12 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "center",
 		borderBottomColor: THEME.colors.gray,
-		borderBottomWidth: 1,
+		borderBottomWidth: 0.5,
 	},
 
 	titleModal: {
 		fontSize: 18,
 		fontFamily: THEME.font.InstagramSansBold,
-	},
-	wrapRows: { width: "100%", paddingHorizontal: THEME.paddingHorisontal },
-	row: {
-		flexDirection: "row",
-		alignItems: "center",
-	},
-	wrapRowTitle: {
-		paddingTop: 15,
-		paddingBottom: 15,
-		marginLeft: 10,
-		borderBottomColor: THEME.colors.gray,
-		borderBottomWidth: 1,
-		height: "100%",
-
-		flex: 1,
-		flexDirection: "row",
-		alignItems: "center",
-	},
-	rowTitle: {
-		fontSize: 17,
-		fontFamily: THEME.font.InstagramSansRegular,
 	},
 });
 export default bottomModalHOC(CreatePost);
