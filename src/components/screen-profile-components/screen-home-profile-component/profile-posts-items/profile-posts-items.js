@@ -16,8 +16,14 @@ const ProfilePostsItems = ({ data }) => {
 			{data.map((post) => {
 				return (
 					<View key={post.id} style={styles.post}>
-						<Pressable style={styles.postPressable}>
+						<Pressable
+							style={styles.postPressable}
+							onLongPress={() => console.log("press long")}
+						>
 							<Image style={styles.postImage} source={post.image} />
+							<Pressable onPress={() => console.log("lalala")}>
+								<Text>lalala</Text>
+							</Pressable>
 						</Pressable>
 					</View>
 				);
@@ -32,6 +38,7 @@ const styles = StyleSheet.create({
 		flexWrap: "wrap",
 	},
 	post: {
+		paddingTop: 3,
 		width: Dimensions.get("window").width / 3,
 		height: Dimensions.get("window").width / 3,
 	},

@@ -26,16 +26,14 @@ const data = [
 		image: require("../../../../../assets/images/posts/5.jpg"),
 	},
 ];
-const FirstRoute = () => <ProfilePostsItems data={data} />;
-const SecondRoute = () => (
-	<View style={{ flex: 1, backgroundColor: "#673ab7" }} />
-);
-const ThreeRoute = () => <View style={{ flex: 1, backgroundColor: "red" }} />;
+const AllPosts = () => <ProfilePostsItems data={data} />;
+const VideoPosts = () => <ProfilePostsItems data={data} />;
+const MarkPosts = () => <ProfilePostsItems data={data} />;
 
 const renderScene = SceneMap({
-	allPosts: FirstRoute,
-	video: SecondRoute,
-	mark: ThreeRoute,
+	allPosts: AllPosts,
+	videoPosts: VideoPosts,
+	markPosts: MarkPosts,
 });
 const TabsProfilePosts = () => {
 	const [index, setIndex] = useState(0);
@@ -45,11 +43,11 @@ const TabsProfilePosts = () => {
 			title: "All posts",
 		},
 		{
-			key: "video",
+			key: "videoPosts",
 			title: "Video",
 		},
 		{
-			key: "mark",
+			key: "markPosts",
 			title: "Mark",
 		},
 	]);
@@ -68,7 +66,7 @@ const TabsProfilePosts = () => {
 								color={focused ? "black" : THEME.colors.gray}
 							/>
 						);
-					if (route.key === "video")
+					if (route.key === "videoPosts")
 						return (
 							<Octicons
 								name="video"
@@ -76,7 +74,7 @@ const TabsProfilePosts = () => {
 								color={focused ? "black" : THEME.colors.gray}
 							/>
 						);
-					if (route.key === "mark")
+					if (route.key === "markPosts")
 						return (
 							<Ionicons
 								name="person-outline"
@@ -85,8 +83,12 @@ const TabsProfilePosts = () => {
 							/>
 						);
 				}}
-				indicatorStyle={{ backgroundColor: THEME.colors.gray, width: 2 }}
-				style={{ backgroundColor: "#fff" }}
+				indicatorStyle={{
+					backgroundColor: "#000",
+					width: Dimensions.get("window").width / 3 - 3,
+					height: 1.5,
+				}}
+				style={{ backgroundColor: "#fff", shadowColor: "transparent" }}
 			/>
 		);
 	};

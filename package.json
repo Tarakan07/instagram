@@ -35,7 +35,8 @@
     "react-native-screens": "~3.15.0",
     "react-native-size-matters": "^0.4.0",
     "react-native-tab-view": "^3.5.2",
-    "react-native-webpack": "^0.1.1"
+    "react-native-webpack": "^0.1.1",
+    "expo-av": "~12.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

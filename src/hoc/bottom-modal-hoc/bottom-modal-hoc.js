@@ -17,7 +17,7 @@ const bottomModalHOC = (Modal) => {
 		const bottomSheetModalRef = useRef();
 		const windowHeight = Dimensions.get("window").height;
 		const screenHeight = Dimensions.get("screen").height;
-		const snapPoints = useMemo(() => ["50%", "80%"], []);
+		const snapPoints = useMemo(() => ["60%", "80%"], []);
 
 		useEffect(() => {
 			bottomSheetModalRef.current?.present();
