@@ -8,7 +8,7 @@ import {
 } from "react-native-gesture-handler";
 import initProject from "./src/INIT-PROJECT";
 import Navigation from "./src/navigation";
-
+console.log("start");
 SplashScreen.preventAutoHideAsync();
 export default function App() {
 	const [appReady, setAppReady] = useState(false);
